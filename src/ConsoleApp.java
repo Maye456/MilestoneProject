@@ -1,7 +1,24 @@
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.prefs.Preferences;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import BusinessServices.ContactAppBusinessService;
 import DataAccess.FileIOService;
@@ -20,17 +37,9 @@ import Model.PersonContact;
 public class ConsoleApp
 {
 	public static void main(String[] args) throws Exception
-	{
-		ContactAppBusinessService bs = new ContactAppBusinessService();
-		//TEST
-		FileIOService fs = new FileIOService();
-		fs.writeAllData(bs);
-		
-		ContactAppBusinessService list = new ContactAppBusinessService();
-		list = fs.readAllData();
-		
-		System.out.println("The list read from the JSON File is: \n" + list.getList().toString());
-		
+	{	
+		ContactAppBusinessService bs = new ContactAppBusinessService();		
+				
 		// Create A Current List of Contacts to input in the Address Book
 		PersonContact p1 = new PersonContact();
 		bs.list.addOne(p1);
@@ -48,6 +57,17 @@ public class ConsoleApp
 		BusinessContact b1 = new BusinessContact();
 		bs.list.addOne(b1);
 
+		// TESTING
+		FileIOService fs = new FileIOService();
+		fs.writeAllData(bs);
+		AddressBook ab = new AddressBook();
+		ab = fs.readAllData();
+		System.out.println(ab.getContactList().toString());
+		
+//		bs.saveAllContacts();
+//		bs.loadAllLists();
+
+		
 		boolean start = true;
 		while(start == true)
 		{
@@ -155,7 +175,6 @@ public class ConsoleApp
 			}
 			else if(choose == 2) // View Current List of Contact
 			{
-
 				System.out.println("====== List Of Contacts ======");
 				System.out.println(bs.list.toString());
 

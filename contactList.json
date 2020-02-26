@@ -1,5 +1,60 @@
 {
   "list" : {
-    "contactList" : [ ]
+    "contactList" : [ {
+      "userID" : 1,
+      "name" : "Jeanna Maye E. Benitez",
+      "phoneNumber" : "(510) 731-8854",
+      "email" : "benitezjeanna@yahoo.com",
+      "streetName" : "2013 Fitzgerald Way",
+      "city" : "Brentwood",
+      "state" : "CA",
+      "zipCode" : "94513",
+      "country" : "USA",
+      "photoName" : "mypicture.jpg",
+      "dateOfBirth" : "09/06/2001",
+      "description" : "I Go To GCU in Arizona and am pursuing a Bachelor's Degree in Computer programming"
+    }, {
+      "userID" : 3,
+      "name" : "Sharon Agcang",
+      "phoneNumber" : "510-862-1219",
+      "email" : "s.agcang@gmail.com",
+      "streetName" : "8025 Starbuck Way",
+      "city" : "Roseville",
+      "state" : "CA",
+      "zipCode" : "95747",
+      "country" : "USA",
+      "photoName" : "sharon.jpg",
+      "dateOfBirth" : "03/23/1982",
+      "description" : "Medical field worker"
+    }, {
+      "userID" : 4,
+      "name" : "Beca Mitchell",
+      "phoneNumber" : "389-880-8956",
+      "email" : "bmitchell@gmail.com",
+      "streetName" : "6936 Barden St",
+      "city" : "Atltanta",
+      "state" : "GA",
+      "zipCode" : "75926",
+      "country" : "USA",
+      "photoName" : "bmitchell.jpg",
+      "dateOfBirth" : "03/28/1994",
+      "description" : "Intern at local recording studio"
+    }, {
+      "userID" : 2,
+      "name" : "Lena Luthor",
+      "phoneNumber" : "(625) 859-0036",
+      "email" : "lluthor@gmail.com",
+      "streetName" : "489 National Ave",
+      "city" : "National City",
+      "state" : "CA",
+      "zipCode" : "28193",
+      "country" : "USA",
+      "photoName" : "lena.jpg",
+      "businessName" : "L-Corp",
+      "opening" : "9:00 A.M.",
+      "closing" : "10:00 P.M.",
+      "daysOfWeekOpen" : [ false, true, true, true, true, true, true ],
+      "url" : "http://www.inmydreams.com"
+    } ]
   }
 }

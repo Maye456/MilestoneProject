@@ -1,11 +1,5 @@
 package Model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 /* Jeanna Maye E. Benitez
  * Date: 02/12/2020
  * This Class will store all Person & Business Contact
@@ -15,22 +9,40 @@ import java.io.IOException;
 
 import java.util.ArrayList;  
 import java.util.List;
+import java.util.Map;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class AddressBook // Main Data Storage for entire app. Demonstrates use of generic.
 {
-	private ArrayList<BaseContact> contactList;
+	private ArrayList<BaseContact> contactList = new ArrayList<BaseContact>();
 
 	public AddressBook(ArrayList<BaseContact> contactList)
 	{
 		super();
 		this.contactList = contactList;
 	}
+	
 	// Default Constructor creates empty list of Base Contacts
 	public AddressBook()
 	{
 		this.contactList = new ArrayList<BaseContact>();
 	}
 
+	// Getters & Setters
+	public ArrayList<BaseContact> getContactList()
+	{
+		return this.contactList;
+	}
+
+	public void setContactList(ArrayList<BaseContact> contactList)
+	{
+		this.contactList = contactList;
+	}
+	
 	// Add one person/business contact to the list
 	// Duplicate overloaded methods for each class (Person and Business)
 	public <T extends BaseContact> void addOne(T contact)
@@ -50,16 +62,6 @@ public class AddressBook // Main Data Storage for entire app. Demonstrates use o
 		{
 			return false;
 		}
-	}
-
-	public ArrayList<BaseContact> getContactList()
-	{
-		return this.contactList;
-	}
-
-	public String toString()
-	{
-		return this.contactList.toString();
 	}
 
 	// Search Contact List by Letter

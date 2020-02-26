@@ -20,25 +20,26 @@ public class ContactAppBusinessService
 	public ContactAppBusinessService(AddressBook list)
 	{
 		super();
-		this.setList(list);
+		this.list = list;
 	}
 
 	public ContactAppBusinessService()
 	{
 		super();
-		this.setList(new AddressBook());
+		this.list = new AddressBook();
 	}
 
-	public void saveAllLists() // Write all data to the file/database
+	public void saveAllContacts() // Write all data to the file/database
 	{
-		DataAccessService das = new FileIOService();
+		FileIOService das = new FileIOService();
 		das.writeAllData(this);
 	}
 	
-	public ContactAppBusinessService loadAllLists() // Read data from file/database
+	public void loadAllLists() // Read data from file/database
 	{
-		DataAccessService das = new FileIOService();
-		return das.readAllData();
+		FileIOService das = new FileIOService();
+		list = das.readAllData();
+		System.out.println(list.getContactList().toString());
 	}
 
 	public AddressBook getList()

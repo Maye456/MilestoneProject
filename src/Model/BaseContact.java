@@ -41,17 +41,9 @@ public abstract class BaseContact implements Comparable<BaseContact>
 	// Default Constructor
 	public BaseContact()
 	{
-		this.userID = 1;
-		this.name = "Jeanna Maye E. Benitez";
-		this.phoneNumber = "(510) 731-8854";
-		this.email = "benitezjeanna@yahoo.com";
-		this.streetName = "2013 Fitzgerald Way";
-		this.city = "Brentwood";
-		this.state = "CA";
-		this.zipCode = "94513";
-		this.country = "USA";
-		this.photoName = "mypicture.jpg"; 
+		
 	}
+	
 	
 	public String toString() // Will return a string when .toString() is used
 	{
