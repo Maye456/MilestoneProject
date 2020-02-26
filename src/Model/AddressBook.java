@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class AddressBook // Main Data Storage for entire app. Demonstrates use of generic.
 {
-	private ArrayList<BaseContact> contactList = new ArrayList<BaseContact>();
+	public ArrayList<BaseContact> contactList;
 
 	public AddressBook(ArrayList<BaseContact> contactList)
 	{

@@ -8,61 +8,53 @@ package DataAccess;
  */
 
 import Model.AddressBook;
+import Model.BaseContact;
+import Model.PersonContact;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import BusinessServices.ContactAppBusinessService;
 
 public class FileIOService implements DataAccessService 
 {
 	@Override
-	public AddressBook readAllData() 
+	public ContactAppBusinessService readAllData() 
 	{
-//		ObjectMapper om = new ObjectMapper();
-//		try
-//		{
-//			// convert JSON file to map
-//			List<ContactAppBusinessService> contacts = Arrays.asList(om.readValue(Paths.get("contactList.json").toFile(), ContactAppBusinessService[].class));
-//			// print map entries
-//			contacts.forEach(System.out::println);
-//
-//		} catch (Exception ex) {
-//		    ex.printStackTrace();
-//		}
-		
-		AddressBook list = new AddressBook();
+		ContactAppBusinessService contactList = new ContactAppBusinessService();
 		try
 		{
-			list = new ObjectMapper().readerFor(ContactAppBusinessService.class).readValue(new File("contactList.json"));
+			contactList = new ObjectMapper().readerFor(ContactAppBusinessService.class).readValue(new File("contactList.json"));
 		} 
 		catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
-		return list;
+		return contactList;
 	}
 
-	@Override
-	public void writeAllData(ContactAppBusinessService bs) 
+	public void writeAllData(ContactAppBusinessService contactList) 
 	{	
 		ObjectMapper om = new ObjectMapper();
-		
 		try 
 		{
-			om.writerWithDefaultPrettyPrinter().writeValue(new File("contactList.json"), bs);
+			om.writerWithDefaultPrettyPrinter().writeValue(new File("contactList.json"), contactList);
 		} 
 		catch (JsonGenerationException e) 
 		{

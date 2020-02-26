@@ -56,17 +56,8 @@ public class ConsoleApp
 
 		BusinessContact b1 = new BusinessContact();
 		bs.list.addOne(b1);
-
-		// TESTING
-		FileIOService fs = new FileIOService();
-		fs.writeAllData(bs);
-		AddressBook ab = new AddressBook();
-		ab = fs.readAllData();
-		System.out.println(ab.getContactList().toString());
 		
-//		bs.saveAllContacts();
-//		bs.loadAllLists();
-
+		bs.saveAllContacts();
 		
 		boolean start = true;
 		while(start == true)
@@ -117,9 +108,10 @@ public class ConsoleApp
 					PersonContact entry = new PersonContact(userID, name, dateOfBirth, phoneNumber, email, streetName, city, 
 							state, zipCode, country, photoName, description); 
 					bs.list.addOne(entry);
-
+					bs.saveAllContacts();
+					
 					System.out.println("====== Updated List Of Contacts ======");
-					System.out.println(bs.list.toString());
+					bs.loadAllLists();
 				}
 				else if (makeContact == 2) // Create Business Contact
 				{
@@ -163,9 +155,10 @@ public class ConsoleApp
 							streetName, city, state, zipCode, country, photoName, businessName, description, 
 							opening, closing, daysOfWeekOpen, url);
 					bs.list.addOne(entry);
-
+					bs.saveAllContacts();
+					
 					System.out.println("====== Updated List Of Contacts ======");
-					System.out.println(bs.list.toString());
+					bs.loadAllLists();
 				}
 				else if(makeContact == 3)
 				{
@@ -176,7 +169,7 @@ public class ConsoleApp
 			else if(choose == 2) // View Current List of Contact
 			{
 				System.out.println("====== List Of Contacts ======");
-				System.out.println(bs.list.toString());
+				bs.loadAllLists();
 
 				// User Input to Edit Contacts
 				System.out.println("(1) Search For Contact");
@@ -204,9 +197,10 @@ public class ConsoleApp
 					if(pick == 1) // Remove Contact
 					{
 						bs.getList().deleteContact(search);
-					
+						bs.saveAllContacts();
+						
 						System.out.println("====== New List Of Contacts ======");
-						System.out.println(bs.list);
+						bs.loadAllLists();
 					}
 					else if(pick == 2) // Don't Remove Contact
 					{
@@ -236,6 +230,7 @@ public class ConsoleApp
 							updateString = input.nextLine();
 					
 							bs.getList().updateContact(id, result - 1, updateString);
+							bs.saveAllContacts();
 						} 
 						else 
 						{	

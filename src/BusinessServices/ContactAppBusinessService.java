@@ -31,14 +31,14 @@ public class ContactAppBusinessService
 
 	public void saveAllContacts() // Write all data to the file/database
 	{
-		FileIOService das = new FileIOService();
+		DataAccessService das = new FileIOService();
 		das.writeAllData(this);
 	}
 	
 	public void loadAllLists() // Read data from file/database
 	{
-		FileIOService das = new FileIOService();
-		list = das.readAllData();
+		DataAccessService das = new FileIOService();
+		das.readAllData();
 		System.out.println(list.getContactList().toString());
 	}
 

@@ -1,6 +1,7 @@
 {
   "list" : {
     "contactList" : [ {
+      "type" : "Personal Contact",
       "userID" : 1,
       "name" : "Jeanna Maye E. Benitez",
       "phoneNumber" : "(510) 731-8854",
@@ -14,6 +15,7 @@
       "dateOfBirth" : "09/06/2001",
       "description" : "I Go To GCU in Arizona and am pursuing a Bachelor's Degree in Computer programming"
     }, {
+      "type" : "Personal Contact",
       "userID" : 3,
       "name" : "Sharon Agcang",
       "phoneNumber" : "510-862-1219",
@@ -27,6 +29,7 @@
       "dateOfBirth" : "03/23/1982",
       "description" : "Medical field worker"
     }, {
+      "type" : "Personal Contact",
       "userID" : 4,
       "name" : "Beca Mitchell",
       "phoneNumber" : "389-880-8956",
@@ -40,6 +43,7 @@
       "dateOfBirth" : "03/28/1994",
       "description" : "Intern at local recording studio"
     }, {
+      "type" : "Business Contact",
       "userID" : 2,
       "name" : "Lena Luthor",
       "phoneNumber" : "(625) 859-0036",
